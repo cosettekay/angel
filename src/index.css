@@ -22,3 +22,52 @@ body {
   background: rgba(255, 116, 38, 0.4);
   color: #ffffff;
 }
+
+.typewriter-caret {
+  display: inline-block;
+  width: 0.1em;
+  height: 1.05em;
+  margin-left: 0.12em;
+  background-color: currentColor;
+  animation: typewriter-caret-blink 1s steps(2, start) infinite;
+  transform: translateY(0.08em);
+}
+
+@keyframes typewriter-caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.glow-section-stack {
+  position: relative;
+  isolation: isolate;
+  --glow-anchor: 38%;
+}
+
+.glow-section-stack::before {
+  content: '';
+  position: absolute;
+  top: clamp(260px, 30vh, 360px);
+  bottom: clamp(-500px, -23vh, -320px);
+  left: 50%;
+  width: min(62vw, 780px);
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% var(--glow-anchor, 38%),
+    rgba(255, 138, 58, 0.18) 0%,
+    rgba(255, 138, 58, 0.12) 26%,
+    rgba(255, 120, 38, 0.06) 52%,
+    rgba(255, 120, 38, 0.03) 70%,
+    transparent 94%
+  );
+  filter: blur(60px);
+  opacity: 0.34;
+}
